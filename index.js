@@ -13,7 +13,7 @@ const main = async () => {
     console.log("from: 0x"+tx.topics[1].slice(26))
     console.log("to: 0x"+tx.topics[2].slice(26))
     console.log("Value: "+parseInt(tx.data)/1000000)
-    fs.appendFileSync("index.txt","from: 0x"+tx.topics[1].slice(26)+" to: 0x"+tx.topics[2].slice(26)+" Value: "+parseInt(tx.data)/1000000+"\n")
+    fs.appendFileSync("index.csv","0x"+tx.topics[1].slice(26)+",0x"+tx.topics[2].slice(26)+","+parseInt(tx.data)/1000000+"\n")
   });
 };
 
