@@ -39,7 +39,10 @@ const main = async () => {
     console.log("Value: "+parseInt(tx.data)/1000000)
     var sql = "INSERT INTO USDT_Record VALUES ('0x"+tx.topics[1].slice(26)+"', '0x"+tx.topics[2].slice(26)+"', "+parseInt(tx.data)/1000000+", '"+moment().format('YYYY-MM-DD HH:mm:ss')+"')";
     con.query(sql)
-
+    var sql = "INSERT INTO USDT_OrderBook VALUES ('0x"+tx.topics[1].slice(26)+"','SELL')";
+    con.query(sql)
+    var sql = "INSERT INTO USDT_OrderBook VALUES ('0x"+tx.topics[2].slice(26)+"','BUY')";
+    con.query(sql)
 
 
     
